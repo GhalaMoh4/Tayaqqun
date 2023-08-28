@@ -1,0 +1,2 @@
+# Tayaqqun
+AI-powered project
