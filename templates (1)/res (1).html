@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal&display=swap" rel="stylesheet">
+<style>
+  * {
+    font-family: 'Tajawal', sans-serif;
+  }
+</style>
+  <title>
+تيقّن
+  </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    @import url('https://fonts.googleapis.com/css?family=Montserrat');
+
+    ::-moz-selection {
+      background: transparent;
+    }
+
+    ::selection {
+      background: transparent;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+
+    body {
+      color: #333;
+      height: 94vh;
+      position: relative;
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 1.5em;
+      margin: 30px 0;
+      font-weight: 700;
+    }
+
+    .container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 55vh;
+    }
+
+    .slider-wrapper {
+      width: 600px;
+      height: 300px;
+      overflow: hidden;
+    }
+
+    .inner-wrapper {
+      width: 500%;
+      height: 100%;
+      position: relative;
+      left: -100%;
+    }
+
+    .slide {
+      width: calc(100% / 5);
+      height: 100%;
+      float: left;
+      font-size: 100px;
+      color: black;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .button {
+      width: 30px;
+      height: 30px;
+      border-top: 2px solid black;
+      position: absolute;
+      cursor: pointer;
+    }
+
+    .prev {
+      border-left: 4px solid black;
+      left: 10%;
+      transform: rotate(-45deg);
+    }
+
+    .next {
+      border-right: 4px solid black;
+      right: 10%;
+      transform: rotate(45deg);
+    }
+        body { font-family: sans-serif; }
+
+.scene {
+  display: inline-block;
+  width: 200px;
+  height: 300px;
+/*   border: 1px solid #CCC; */
+  margin: 40px 0;
+  perspective: 600px;
+}
+.footer {
+  background: linear-gradient(to left,#6332B6, #410f89);
+  text-align: center;
+  padding: 40px;
+  color: white;
+}
+.card {
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+  transform-style: preserve-3d;
+  transform-origin: center right;
+  transition: transform 1s;
+}
+.info-box {
+  display: inline-block;
+  background-color: red;
+  color: white;
+  border-radius: 0  0 10px 10px ;
+
+}
+.card.is-flipped {
+  transform: translateX(-100%) rotateY(-180deg);
+}
+
+.card__face {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  line-height: 260px;
+  color: white;
+  text-align: center;
+  font-weight: bold;
+  font-size: 40px;
+  backface-visibility: hidden;
+  border-radius: 0  0 10px 10px ;
+
+}
+
+.card__face--front {
+  background: #D3D3D3;
+  color: black;
+  font-size: 30px;
+
+  border-radius: 0  0 10px 10px ;
+
+}
+
+.card__face--back {
+  background: #808080;
+  color: #ffffff;
+  transform: rotateY(180deg);
+  font-size: 30px;
+  border-radius: 0  0 10px 10px ;
+
+}
+
+
+  </style>
+  
+</head>
+<body>
+  <div id="__next">
+    <nav class="bg-white sticky inset-0 z-40 h-max max-w-full rounded-none py-6 px-4 lg:px-8 duration-200 ease-out false">
+
+      <div class="flex items-center justify-between text-blue-gray-900">
+        <div class="logo">
+          <img style="margin: 15px;" alt="Tayaqqun logo" loading="lazy" width="150" height="55" decoding="async" data-nimg="1" class="h-14 md:h-[40px] w-auto duration-200" src="static/شغوف بايتس_files/images/Tayaqqun_logo.jpg">
+        </div>
+      </div>  
+  </nav>
+</div>
+  <hr>
+  <div class="mt-32">
+      </div>
+  <div class="container">
+
+    <div class="slider-wrapper">
+      <div id="label2" style="width: 600px; height: 50px; background: linear-gradient(to left, #c7719e, #410f89); color: #ffffff; font-size: 20px; display: flex; justify-content: center; align-items: center; border-radius: 10px 10px 0  0 ;">
+        <p  class="font-tajawal font-bold text-base sm:text-2xl xl:text-2xl text-sky px-2 py-2">      اختبر نفسك
+        </p>
+      </div>
+      <div class="inner-wrapper">
+
+
+        {% for card in cards %}
+        <div class="slide">
+            <div class="card">
+                <div class="card__face card__face--front">1 : {{ card['front1'] }}</div>
+                <div class="card__face card__face--back">{{ card['back1'] }}</div>
+            </div>
+        </div>
+        <div class="slide">
+            <div class="card">
+                <div class="card__face card__face--front">2 : {{ card['front2'] }}</div>
+                <div class="card__face card__face--back">{{ card['back2'] }}</div>
+            </div>
+        </div>
+        <div class="slide">
+            <div class="card">
+                <div class="card__face card__face--front">3 : {{ card['front3'] }}</div>
+                <div class="card__face card__face--back">{{ card['back3'] }}</div>
+            </div>
+        </div>
+        {% endfor %}
+
+      </div>
+      
+    </div>
+    
+    <div class="button prev"></div>
+    <div class="button next"></div>
+  </div>
+</div>
+<!-- Add the rectangle in the middle -->
+<div style="display: flex; justify-content: center; align-items: center; height: 10vh;">
+  <div style=" width: 610px; height: 50px;  color: black; font-size: 20px; display: flex; justify-content: center; align-items: center;">
+    لإظهار الجواب قم بالضغط على بطاقة السؤال
+  </div>
+</div>
+
+<footer style="margin-top: 40px;" class="footer">
+  <div class="px-10 w-full flex flex-col items-center lg:w-1/2 lg:h-full order-3 lg:order-2 justify-end text-center">
+
+  <div class="flex gap-4 justify-center">
+    <a target="_blank" href="https://twitter.com/tayqqun"><img alt="@Tayaqqun's Twitter" loading="lazy" width="34" height="35" decoding="async" data-nimg="1" class="w-5 md:w-8" style="color:transparent" src="static/شغوف بايتس_files/images/twitter.e52c6158.svg"></a>
+    <a target="_blank" href=" "><img alt="Tayaqqun's Linkedin" loading="lazy" width="34" height="35" decoding="async" data-nimg="1" class="w-5 md:w-8" style="color:transparent" src="static/شغوف بايتس_files/images/linkedin.f4534d54.svg"></a>
+    <a target="_blank" href=" "><img alt="Tayaqqun's Youtube" loading="lazy" width="34" height="35" decoding="async" data-nimg="1" class="w-5 md:w-8" style="color:transparent" src="static/شغوف بايتس_files/images/youtube.526e8db8.svg"></a>
+    <a target="_blank" href=" "><img alt="@Tayaqqun's Instagram" loading="lazy" width="34" height="35" decoding="async" data-nimg="1" class="w-5 md:w-8" style="color:transparent" src="static/شغوف بايتس_files/images/instagram.41096131.svg"></a>
+  </div>
+  <p>جميع الحقوق محفوظة لمنصة تـيقّن التعليمية 2023</p>
+  </div>
+</footer>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script>
+    $(function() {
+
+      var inWrap = $('.inner-wrapper');
+
+      $('.prev').on('click', function() {
+
+        inWrap.animate({left: '0%'}, 300, function(){
+
+          inWrap.css('left', '-100%');
+
+          $('.slide').first().before($('.slide').last());
+
+        });
+
+
+      });
+
+
+
+      $('.next').on('click', function() {
+
+        inWrap.animate({left: '-200%'}, 300, function(){
+
+          inWrap.css('left', '-100%');
+
+          $('.slide').last().after($('.slide').first());
+
+        });
+
+
+      });
+
+
+    })
+    var cards = document.querySelectorAll('.card');
+
+[...cards].forEach((card)=>{
+  card.addEventListener( 'click', function() {
+    card.classList.toggle('is-flipped');
+  });
+});
+  </script>
+  </body>
+</html>
